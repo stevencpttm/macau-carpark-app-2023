@@ -1,26 +1,31 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <!-- Main Framework7 App component where we pass Framework7 params -->
+  <f7-app v-bind="f7params">
+    <!-- Main View -->
+    <f7-view id="main-view" url="/" main :push-state="true"></f7-view>
+  </f7-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import routes from "./routes";
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  name: "App",
+  components: {},
+  data() {
+    return {
+      f7params: {
+        name: "Carpark Info",
+        id: "com.example.carpark-info",
+        view: {
+          browserHistory: true,
+          browserHistorySeparator: "",
+        },
+        routes: routes,
+      },
+    };
+  },
+};
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style></style>
